@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title> Login / Sign Up Form</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript"src="jquery3.6.0.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="login">
+            <h1 class="formTitle">Login</h1>
+            <div class="formMessage formMessage--error"></div>
+            <div class="formInput-group">
+                <input type="text" class="formInput" autofocus placeholder="Username" name="UserName" id="UserName">
+                <div class="formInput-error-message"></div>
+            </div>
+            <div class="formInput-group">
+                <input type="password" class="formInput" autofocus placeholder="Password" name="Password" id="Password">
+                <div class="formInput-error-message"></div>
+                <button class="formButton" id="login" type="button">Continue</button>
+                <p class="formText">
+                    <a href="forgot.html" class="formLink">Forgot password?</a>
+                </p>
+                <p class="formText">
+                    <a class="formLink" href="" id="linkCreateAccount">Don't have an account? Create account</a>
+                </p>
+            </div>
+            <button class="home__btn"><a href="home.html">Return to Home Page</a></button>
+        </form>
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="formTitle">Create Account</h1>
+            <div class="formMessage formMessage--error"></div>
+            <div class="formInput-group">
+                <input type="text" class="formInput" id="firstName" autofocus placeholder="First Name" name="firstName">
+                <div class="formInput-error-message"></div>
+            </div>
+            <div class="formInput-group">
+                <input type="text" class="formInput" id="lastName" autofocus placeholder="Last Name" name="lastName">
+                <div class="formInput-error-message"></div>
+            </div>
+            <div class="formInput-group">
+                <input type="text" class="formInput" id="username" autofocus placeholder="Username" name="username">
+                <div class="formInput-error-message">    
+            </div>
+            <div class="formInput-group">
+                <input type="password" class="formInput" id="password" autofocus placeholder="Password" name="password">
+                <div class="formInput-error-message">    
+            </div>
+            <div class="formInput-group">
+                <input type="password" class="formInput" id="confirm" autofocus placeholder="Confirm Password" name="confirm">
+                <div class="formInput-error-message">    
+            </div>
+                <button class="formButton" type="submit" id="continue">Continue</button>
+                <p class="formText">
+                    <a class="formLink" href="" id="linkLogin">Already have an account? Sign in:</a>
+                </p>
+            </div>
+        </form>
+        <button class="home__btn"><a href="home.html">Return to Home Page</a></button>
+    </div>
+    <script type="text/javascript" src="./main.js"></script>
+</body>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+        <title>GET STARTED</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar__container">
+    
+                <a href="home.html" id="navbar__logo">
+                    <i class="fa-solid fa-brain" color="#009579"></i>MIND YOUR HEAD</a>
+                <div class="navbar__toggle" id="mobileMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                </div>
+                <ul class="navbar__menu">
+                    <li class="navbar__item">
+                        <a href="home.html" class="navbar__links">Home</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="index2.html" class="navbar__links">Login</a>
+                    </li>
+
+                    <li class="navbar__item">
+                        <a href="Support.html" class="navbar__links">Support</a>
+                    </li>
+
+                    <li class="navbar__btn">
+                        <a href="/" class="button">Help</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <!--User Form-->
+        <div class="getStartedForm">
+            <div class="col-2"  ></div>
+
+            <div class="consultation" >
+              <p>Consultation Form</p>
+
+              <form style="font-size: 10pt;" id="newUserForm">
+                <div class="newUser">
+                  <label for="name" class="form-label"> Name</label>
+                  <input type="text" class="form-control" id="Name" name="name">
+                </div>
+                <div class="newUser">
+                    <label for="userName" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="userName" name= "uName">
+                  </div>
+                <div class="newUser">
+                  <label for="user" class="form-label">How are you feeling?</label>
+                <select name="feelings" id ="Feelings" name="feelings">
+                  <option value="Sad">Sad</option>
+                  <option value="Lonely">Lonely</option>
+                  <option value="Stressed">Stressed</option>
+                  <option value="Happy">Happy</option>
+                </select>
+                </div>
+                <div class="newUser">
+                    <label for="user" class="form-label">Year at University</label>
+                  <select name="feelings" id ="Year" name="year">
+                    <option value="Year One">Year One</option>
+                    <option value="Year Two">Year Two</option>
+                    <option value="Placement Year">Placement Year</option>
+                    <option value="Final Year">Final Year</option>
+                  </select>
+                  </div>
+    
+                <button type="submit" id="subNewForm" class="btn btn-info">Submit</button> <br/><br/>
+                
+              </form id= "filterForm">
+              <script src="main.js"></script>
+              <script src="app.js"></script>
+    </body>
+    </html>
