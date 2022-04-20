@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
  //Handler for the new user continue button
  $("#continue").click(function(){
 
-    //Execute the submit new asset function
+    //Execute the RegisterNewUser function
     RegisterNewUser();
     
   }); 
@@ -33,19 +33,30 @@ document.addEventListener("DOMContentLoaded", () => {
  //Handler for the Login page
  $("#login").click(function(){
 
-    //Execute the submit new asset function
+    //Execute the LoginUser function
     LoginUser();
     
   }); 
 
 
-//Handler for the Forgot Password page
-$("#save").click(function(){
+//Handler for the button on the Users page to retrieve all users
+$("#getusers").click(function(){
 
-    //Execute the submit new asset function
-    ForgotPassword();
+    //Execute the ForgotPassword function
+    //ForgotPassword();
+    GetAllUsers();
     
   }); 
+
+//Handler for the Forgot Password page
+ $("#save").click(function(){
+
+    //Execute the GetAllUsers function
+    ForgotPassword();
+    //GetAllUsers();
+    
+  }); 
+
 
   
 
@@ -211,3 +222,49 @@ function ForgotPassword(){
 
    
 }
+
+function GetAllUsers(){
+
+    URL = "http://localhost:4000/users/"
+    var items = []
+    console.log("Hello")
+            $.getJSON(URL, function( data){ 
+                $.each(data, function(key, val){
+                    items.push("User ID: " + val["id"]+ "<br />");
+                    items.push("<br />");
+                    items.push("Name: " + val["firstName"]+ " " + val["lastName"] + "<br />");
+                    items.push("Username: " + val["username"] + "<br />");
+                    items.push("<br />");
+                    items.push('<button style="color: rgb(59, 201, 135);" type="button" id= "subNewForm" class="btn btn-danger" value= "' + val.username + '" onclick="deleteUser(this)">Delete</button> <br/><br/>');
+                    items.push("<br />");
+    
+
+                })
+                $('#UsersList').empty();
+
+    //Append the contents of the items array to the ImageList Div
+
+    $( "<ul/>",{
+      "class": "my-new-list",
+      html: items.join( "")
+    }).appendTo( "#UsersList");
+    });
+}
+    
+function deleteUser(id){
+    id = id.value;
+    console.log(id);
+    $.ajax({
+  
+      type: "DELETE",
+  
+      url: "http://localhost:4000/users/" + id,
+  
+    }).done(function( msg ) {
+      // On success, update the UsersList
+      alert("User Has Been deleted")
+      GetAllUsers();
+    });
+  }
+            
+    
