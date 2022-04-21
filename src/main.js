@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Execute the LoginUser function
     LoginUser();
     
+    
   }); 
 
 
@@ -126,6 +127,8 @@ function LoginUser(){
     //console.log(submitData)
     //console.log(X)
 
+    if(FormData.username != "" && FormData.password != "")
+    {
             $.ajax({
             url: 'http://localhost:4000/users/authenticate',
             data: JSON.stringify(Object.fromEntries(submitData)),
@@ -143,9 +146,12 @@ function LoginUser(){
                 
   
         
-    })
+    })   
+} else {
+    
+        alert("Please enter your credentials")
+    }
 
-   
 }
 
 function RegisterUserDetails(){
@@ -195,11 +201,15 @@ function ForgotPassword(){
     //Get form variables and append them to the form data object
     submitData.append('username', $('#UserName').val());
     submitData.append('password', $("#NewPassword").val());
+    submitData.append('confirmNewPassword', $("#ConfirmNewPassword").val());
     //console.log(submitData)
     //console.log(X)
     URL = "http://localhost:4000/users/password/" + submitData.get('username')
     console.log(URL)
 
+    if (
+        submitData.get('password')== submitData.get('confirmNewPassword')
+    ){
             $.ajax({
             url: URL,
             data: JSON.stringify(Object.fromEntries(submitData)),
@@ -219,6 +229,10 @@ function ForgotPassword(){
   
         
     })
+} else {
+    console.log('passwords must match')
+    alert("Passwords must match to continue")
+}
 
    
 }
@@ -268,3 +282,4 @@ function deleteUser(id){
   }
             
     
+
