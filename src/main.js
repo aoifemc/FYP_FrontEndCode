@@ -58,6 +58,18 @@ $("#getusers").click(function(){
     
   }); 
 
+  //Handler for the button on the GetStarted Page to upload form
+$("#subNewForm").click(function(){
+
+    //Execute the ForgotPassword function
+    //ForgotPassword();
+    RegisterFormDetails();
+    
+  }); 
+
+
+    
+
 
   
 
@@ -78,12 +90,20 @@ function RegisterNewUser(){
     //console.log(submitData)
     //console.log(X)
 
-    if (
-        submitData.get('password')== submitData.get('confirm')
-    ){
+     if (
+         submitData.get('password')== submitData.get('confirm') 
+     ){
         console.log('passwords match')
         //Post the form data to the endpoint, note the need to set the content type header
-            alert("Posted")
+            alert("Account Created")
+            // if(submitData.get.length('password') <=6 ){
+
+
+            //     alert("Password must be more than 6 characters")
+            // }
+            // else{
+
+            
             $.ajax({
             url: 'http://localhost:4000/users/register',
             //data: JSON.stringify(Input),
@@ -100,10 +120,13 @@ function RegisterNewUser(){
   
         }
     })
-    } else {
-        console.log('passwords do not match')
-        alert("Passwords do not match")
-    }
+     } else {
+         console.log('passwords do not match')
+         alert("Passwords do not match")
+     }
+}
+
+    
 
     // testing hard code to post createNewUser
     // Input = {
@@ -114,7 +137,7 @@ function RegisterNewUser(){
     // }
     
   
-}
+// }
 function LoginUser(){
 
     //Create a form data object
@@ -154,13 +177,14 @@ function LoginUser(){
 
 }
 
-function RegisterUserDetails(){
+function RegisterFormDetails(){
 
     //Create a form data object
     submitData = new FormData();
     var X = $("form").serializeArray()
   
     //Get form variables and append them to the form data object
+    submitData.append('id', $('#id').val());
     submitData.append('Name', $('#name').val());
     submitData.append('User', $('#uName').val());
     submitData.append('Feelings', $('#feelings').val());
@@ -168,23 +192,19 @@ function RegisterUserDetails(){
     //console.log(submitData)
     //console.log(X)
 
-        console.log('passwords match')
         //Post the form data to the endpoint, note the need to set the content type header
-            alert("Posted")
+            //alert("Posted")
             $.ajax({
-            url: 'http://localhost:4000/users/register',
-            //data: JSON.stringify(Input),
+            url: 'http://localhost:4000/forms/consultationForm',
             data: JSON.stringify(Object.fromEntries(submitData)),
-            // data: submitData.get('username') && submitData.get('password')
             cache: false,
-            //enctype: 'application/x-www-form-urlencoded',
             contentType: 'application/json',
             processData: false,
             type: 'POST',
             success: function(data){
                 var message = data;
-                alert(message)
-                document.location.href="index2.html"
+                alert("Done")
+
   
         }
     })
@@ -280,6 +300,4 @@ function deleteUser(id){
       GetAllUsers();
     });
   }
-            
-    
 

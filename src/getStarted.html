@@ -7,6 +7,7 @@
         initial-scale=1.0">
         <title>GET STARTED</title>
         <link rel="stylesheet" href="styles.css"/>
+        <script type="text/javascript" src="jquery3.6.0.js"></script>
     </head>
     <body>
         <nav class="navbar">
@@ -14,6 +15,9 @@
     
                 <a href="home.html" id="navbar__logo">
                     <i class="fa-solid fa-brain" color="#009579"></i>MIND YOUR HEAD</a>
+                    <li class="navbar__btn">
+                      <a href="Logout.html" id="logout" class="LogoutB">Log Out Here</a>
+                  </li>
                 <div class="navbar__toggle" id="mobileMenu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -23,9 +27,9 @@
                     <li class="navbar__item">
                         <a href="home.html" class="navbar__links">Home</a>
                     </li>
-                    <li class="navbar__item">
+                    <!-- <li class="navbar__item">
                         <a href="index2.html" class="navbar__links">Login</a>
-                    </li>
+                    </li> -->
 
                     <li class="navbar__item">
                         <a href="Support.html" class="navbar__links">Support</a>
@@ -47,6 +51,12 @@
               <p>Consultation Form</p>
 
               <form style="font-size: 10pt;" id="newUserForm">
+
+                <div class="newUser">
+                  <label for="id" class="form-label"> User ID</label>
+                  <input type="text" class="form-control" id="id" name="ID">
+                </div>
+
                 <div class="newUser">
                   <label for="name" class="form-label"> Name</label>
                   <input type="text" class="form-control" id="Name" name="name">
@@ -74,10 +84,11 @@
                   </select>
                   </div>
     
-                <button type="submit" id="subNewForm" class="btn btn-info">Submit</button> <br/><br/>
+                <button type="button" id="subNewForm" class="btn btn-info">Submit</button> <br/><br/>
                 
               </form id= "filterForm">
               <script src="main.js"></script>
               <script src="app.js"></script>
     </body>
+    <script type="text/javascript" src="main.js"></script>
     </html>
